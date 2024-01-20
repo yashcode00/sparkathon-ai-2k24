@@ -6,7 +6,6 @@ run: app.py
 
 clean:
 	@echo "Cleaning up temporary files..."
-	@rm -rf __pycache__ uploads
 
 init:
 	@echo "Initializing project..."

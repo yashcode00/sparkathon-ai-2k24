@@ -1,17 +1,19 @@
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import os
-import pytesseract
-from PIL import Image
-from pdf2image import convert_from_path
 from pdfToText import *
+from api import *
+# from flaskext.markdown import Markdown
 
 app = Flask(__name__)
+# Markdown(app)
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+prompt = promptLLM()
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -21,6 +23,7 @@ def perform_ocr(pdf_path):
 
 def enhance_resume(resume_text, target_job):
     enhanced_resume = f"{resume_text}\n\nTarget Job: {target_job}"
+    enhanced_resume = prompt.prompt(f"Give an enhanced resume with job title target job {target_job} and resume {enhance_resume}")
     return enhanced_resume
 
 @app.route('/')
