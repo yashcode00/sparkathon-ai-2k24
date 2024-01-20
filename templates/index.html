@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Enhancement App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Enhance Your Resume</h1>
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <label for="user_name">Your Name:</label>
+            <input type="text" name="user_name" required>
+            <label for="resume">Upload Resume (PDF, PNG, JPG, JPEG):</label>
+            <input type="file" name="resume" accept=".pdf, .png, .jpg, .jpeg" required>
+            <label for="target_job">Target Job Profile:</label>
+            <input type="text" name="target_job" required>
+            <button type="submit">Enhance Resume</button>
+        </form>
+    </div>
+</body>
+</html>
