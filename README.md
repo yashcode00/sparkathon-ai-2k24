@@ -1,1 +1,0 @@
-# sparkathon-ai-2k24
