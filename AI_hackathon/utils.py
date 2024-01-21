@@ -49,15 +49,16 @@ def get_chat_response(user_message, file_path, system_prompt):
     messages.append({"role": "user", "content": user_message.text})
 
     client = OpenAI(
-        base_url="https://openrouter.ai/api/v1",
-        api_key="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",
+        # base_url="https://openrouter.ai/api/v1",
+        api_key="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",
     )
     gpt_response = client.chat.completions.create(
-        model="mistralai/mixtral-8x7b-instruct",
+        # model="mistralai/mixtral-8x7b-instruct",
+        model="gpt-3.5-turbo",
         messages=messages,
     )
     parsed_gpt_response = gpt_response.choices[0].message.content
-    save_messages(user_message.text, parsed_gpt_response, file_path)
+    save_messages(user_message.text, parsed_gpt_response, file_path, system_prompt)
     return parsed_gpt_response
 
 def load_messages(file, final_sys_prompt):
@@ -78,8 +79,8 @@ def load_messages(file, final_sys_prompt):
 
     return messages
 
-def save_messages(user_message, gpt_response, file):
-    messages = load_messages()
+def save_messages(user_message, gpt_response, file, system_prompt):
+    messages = load_messages(file, system_prompt)
     messages.append({"role": "user", "content": user_message})
     messages.append({"role": "assistant", "content": gpt_response})
 
