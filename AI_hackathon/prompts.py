@@ -67,5 +67,26 @@ I want you to only reply as an interviewer.
 Do not write all the conversation at once.
 If there is an error, point it out.
 
-""" 
+""" ,
+
+"feedback_template": """
+
+Based on the chat history, I would like you to evaluate the candidate based on the following format:
+Summarization: summarize the conversation in a short paragraph.
+
+Pros: Give positive feedback to the candidate. 
+
+Cons: Tell the candidate what he/she can improves on.
+
+Score: Give a score to the candidate out of 100.
+
+Sample Answers: sample answers to each of the questions in the interview guideline.
+
+Remember, the candidate has no idea what the interview guideline is.
+Sometimes the candidate may not even answer the question.
+
+Current conversation:
+{history}
+
+"""
 }

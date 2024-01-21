@@ -50,11 +50,12 @@ def get_chat_response(user_message, file_path, system_prompt):
 
     client = OpenAI(
         # base_url="https://openrouter.ai/api/v1",
-        api_key="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",
+        # api_key="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",
+        api_key = "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"
     )
     gpt_response = client.chat.completions.create(
         # model="mistralai/mixtral-8x7b-instruct",
-        model="gpt-3.5-turbo",
+        model = "gpt-3.5-turbo",
         messages=messages,
     )
     parsed_gpt_response = gpt_response.choices[0].message.content
@@ -86,3 +87,29 @@ def save_messages(user_message, gpt_response, file, system_prompt):
 
     with open(file, 'w') as f:
         json.dump(messages, f)
+
+def generate_feedback(file_path):    
+    system_prompt = prompts.get("feedback_template", '')
+    messages = load_messages(file_path, "")
+    system_prompt = system_prompt.format(history=str(messages))
+    
+    print(system_prompt, messages)
+    feedback_messages = []
+    feedback_messages.append(
+            {
+                "role": "system", "content":system_prompt
+            }
+    )
+    client = OpenAI(
+        # base_url="https://openrouter.ai/api/v1",
+        # api_key="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",
+        api_key = "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"
+    )
+    gpt_response = client.chat.completions.create(
+        # model="mistralai/mixtral-8x7b-instruct",
+        model = "gpt-3.5-turbo",
+        messages=feedback_messages
+    )
+    parsed_gpt_response = gpt_response.choices[0].message.content
+    print(parsed_gpt_response)
+    return parsed_gpt_response

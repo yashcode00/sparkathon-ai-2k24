@@ -174,6 +174,7 @@ from utils import (
     transcribe_audio,
     get_chat_response,
     convert_text_to_audio,
+    generate_feedback,
 )
 from streamlit_webrtc import webrtc_streamer, WebRtcMode, RTCConfiguration
 import cv2
@@ -343,6 +344,12 @@ def conduct_interview():
 
     st.audio(audio_bytes, format="audio/wav")
 
+def get_feedback():
+    user_data_folder = f"user_data/{session_state['session_id']}"
+    database_path = f"{user_data_folder}/database.json"
+
+    feedback = generate_feedback(database_path)
+    return feedback
 
 def ai_interviewer_page():
     if st.button("Show Last 10 Facial Expression Scores"):
@@ -353,6 +360,9 @@ def ai_interviewer_page():
 
     if "interview_started" not in st.session_state:
         st.session_state.interview_started = False
+
+    if 'end_interview' not in st.session_state:
+        st.session_state.end_interview = False
 
     if "session_id" not in session_state:
         st.title("AI Interviewer App")
@@ -403,28 +413,32 @@ def ai_interviewer_page():
                 pass
             st.experimental_rerun()
 
-    else:
-        st.title("Welcome to your Interview")
+    elif not st.session_state.end_interview:
 
-        st.subheader("Video Stream")
-        webrtc_streamer(key="camera_score", video_processor_factory=VideoTransformer)
+        if st.session_state.end_interview:
+            st.experimental_rerun()
+        else:
+            st.title("Welcome to your Interview")
 
-        # wav_audio_data = st_audiorec()
-        # user_data_folder = f"user_data/{session_state['session_id']}"
+            st.subheader("Video Stream")
+            webrtc_streamer(key="camera_score", video_processor_factory=VideoTransformer)
 
-        # if wav_audio_data is not None:
-        #     audio_segment = AudioSegment(wav_audio_data)
-        #     if not os.path.exists(f"{user_data_folder}/uploads"):
-        #         os.makedirs(f"{user_data_folder}/uploads")
-        #     audio_segment.export(
-        #         f"{user_data_folder}/uploads/output_data.wav", format="wav"
-        #     )
-        #     conduct_interview()
-        wav_audio_data = audiorecorder(
-            "Muted. Click to Start", "Unmuted. Click to Stop"
-        )
+            # wav_audio_data = st_audiorec()
+            # user_data_folder = f"user_data/{session_state['session_id']}"
 
-        user_data_folder = f"user_data/{session_state['session_id']}"
+            # if wav_audio_data is not None:
+            #     audio_segment = AudioSegment(wav_audio_data)
+            #     if not os.path.exists(f"{user_data_folder}/uploads"):
+            #         os.makedirs(f"{user_data_folder}/uploads")
+            #     audio_segment.export(
+            #         f"{user_data_folder}/uploads/output_data.wav", format="wav"
+            #     )
+            #     conduct_interview()
+            wav_audio_data = audiorecorder(
+                "Muted. Click to Start", "Unmuted. Click to Stop"
+            )
+
+            user_data_folder = f"user_data/{session_state['session_id']}"
 
         if wav_audio_data is not None and wav_audio_data.duration_seconds > 0.1:
             # audio_segment = AudioSegment(wav_audio_data)
@@ -436,6 +450,19 @@ def ai_interviewer_page():
             conduct_interview()
 
         if st.button("Exit Session"):
+            st.session_state.interview_started = False
+            st.session_state.end_interview = False
+            # wav_audio_data = None
+
             user_data_folder = f"user_data/{session_state['session_id']}"
             if os.path.exists(user_data_folder):
-                shutil.rmtree(user_data_folder)
+                shutil.rmtree(user_data_folder)  # Delete the entire user data folder
+
+
+            del session_state['session_id']
+            st.experimental_rerun()
+
+            # if st.button("Exit Session"):
+            #     user_data_folder = f"user_data/{session_state['session_id']}"
+            #     if os.path.exists(user_data_folder):
+            #         shutil.rmtree(user_data_folder)
