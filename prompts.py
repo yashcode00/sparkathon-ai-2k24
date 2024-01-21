@@ -1,5 +1,5 @@
-prompting = {}
-prompting['promptForResume'] = """
+
+system_prompt = """
 Revise and enhance the provided resume information and dont ommit any information, just rewrite and reframe for a candidate actively applying for a specific given job role.
 
 Your primary objective is to refine the existing resume by incorporating sophisticated vocabulary, maintaining a high level of professionalism, and implementing advanced formatting techniques using markdown elements. This should include careful attention to proper indentations, strategic tabs, bold formatting, italics, and skillful grouping of information. The overarching goal is to craft an engaging CV that aligns with established standards, such as the Mcdovells CV format.
@@ -102,5 +102,12 @@ Ensure the language used in the enhanced resume is tailored to the desired job p
 
 
 in the markdown, put the text that you are modifying from the original resume in bold and red color.
+Everything needs to be in mardown.
 
 """
+
+user_prompt = """Enhanced this resume {enhanced_resume} which is  for {user_name} ,with the target job profile of {target_job}."""
+strengths_prompt = """give a score out of 100 for this resume: {enhanced_resume} and  give a detailed analysis and explain of the strength of this 
+resume when for a job profile of  {target_job} and finally conclude them. on the response include only mardown"""
+weakness_prompt = """need to detailed analysis and explain of the weakness of this resume {enhanced_resume} and how to improve make a better to better fit the target job profile of {target_job}
+. on the reponse only include mardown."""

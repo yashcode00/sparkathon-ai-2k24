@@ -4,6 +4,7 @@ import json
 from openai import OpenAI
 from dotenv import load_dotenv
 from prompts import *
+import time
 
 load_dotenv()
 
@@ -14,9 +15,10 @@ class promptLLM:
         self.OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 
-    def get_chat_response(self, user_message):
+    def get_chat_response(self,resume, user_name, target_job):
         messages = self.load_messages()
-        messages.append({"role": "user", "content": user_message.text})
+        mssg = messages
+        mssg.append({"role": "user", "content": user_prompt.format(enhanced_resume  = resume, user_name = user_name, target_job = target_job)})
 
         client = OpenAI(
             # base_url="https://openrouter.ai/api/v1",
@@ -25,11 +27,36 @@ class promptLLM:
         gpt_response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             # model="mistralai/mixtral-8x7b-instruct",
-            messages=messages,
+            messages=mssg,
         )
-        parsed_gpt_response = gpt_response.choices[0].message.content
-        # self.save_messages(user_message.text, parsed_gpt_response)
-        return parsed_gpt_response
+        resp1 = gpt_response.choices[0].message.content
+        print("Response 1 recvd")
+
+        time.sleep(10)
+        ## finding scorecareds, strengths and weaknesses
+        mssg = []
+        mssg.append({"role": "user", "content": strengths_prompt.format(enhanced_resume  = resume, user_name = user_name, target_job = target_job)})
+        s = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            # model="mistralai/mixtral-8x7b-instruct",
+            messages=mssg,
+        ).choices[0].message.content
+        print("Response 2 recieved!")
+        print(s)
+
+        time.sleep(10)
+        mssg = []
+        mssg.append({"role": "user", "content": weakness_prompt.format(enhanced_resume  = resume, user_name = user_name, target_job = target_job)})
+        print("Send")
+        w = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            # model="mistralai/mixtral-8x7b-instruct",
+            messages=mssg,
+        ).choices[0].message.content
+        print(w)
+        print("All recv")
+        # self.save_messages(user_message.text, resp1)
+        return resp1, s, w
 
     def load_messages(self):
         messages = []
@@ -51,7 +78,7 @@ class promptLLM:
             #     print(Exception)
         messages.append(
             {
-                "role": "system", "content": prompting['promptForResume']
+                "role": "system", "content": system_prompt
                 # "role": "system", "content": "You are an interviewer and are interviewing a candidate for a ml engineer position. Ask relevant questions"
             }
         )

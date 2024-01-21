@@ -262,5 +262,5 @@ class pdfToText:
         for page in text_per_page.keys():
             temp = ''.join(text_per_page[str(page)][4])
             result += temp
-        print(result)
+        # print(result)
         return result

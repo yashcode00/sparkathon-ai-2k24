@@ -29,9 +29,9 @@ def perform_ocr(pdf_path):
 
 def enhanceResume(resume_text, user_name ,target_job):
     enhanced_resume = f"{resume_text}"
-    user_message =  Messg(f"Enhanced this resume {enhanced_resume} which is  for {user_name} ,with the target job profile of {target_job}.")
-    enhanced_resume = prompt.get_chat_response(user_message)
-    return markdown.markdown(enhanced_resume)
+    # user_message =  Messg(f"Enhanced this resume {enhanced_resume} which is  for {user_name} ,with the target job profile of {target_job}.")
+    enhanced_resume,s,w = prompt.get_chat_response(enhanced_resume, user_name, target_job)
+    return markdown.markdown(enhanced_resume), markdown.markdown(s), markdown.markdown(w)
 
 @app.route('/')
 def index():
@@ -57,14 +57,14 @@ def upload_file():
         user_name = request.form['user_name']
         target_job = request.form['target_job']
 
-        enhanced_resume = enhanceResume(resume_text, user_name, target_job)
+        enhanced_resume,s,w = enhanceResume(resume_text, user_name, target_job)
         # Convert and save as PDF
         ##uploads/YashSharma_B20241.pdf
         new_file_path = resume_path.split('/')[-1]
         print(new_file_path)
         makepdf(enhanced_resume, new_file_path)
 
-        return render_template('result.html', user_name=user_name, original_resume=resume_text, enhanced_resume=enhanced_resume)
+        return render_template('result.html', user_name=user_name, original_resume=resume_text, enhanced_resume=enhanced_resume, s = s, w = w)
 
     return redirect(request.url)
 
