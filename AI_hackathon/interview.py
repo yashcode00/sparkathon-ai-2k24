@@ -180,7 +180,8 @@ import cv2
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
 import mediapipe as mp
-
+from audiorecorder import audiorecorder
+import io
 
 FRAME_SKIP = 30
 frame_count = 0
@@ -408,14 +409,28 @@ def ai_interviewer_page():
         st.subheader("Video Stream")
         webrtc_streamer(key="camera_score", video_processor_factory=VideoTransformer)
 
-        wav_audio_data = st_audiorec()
+        # wav_audio_data = st_audiorec()
+        # user_data_folder = f"user_data/{session_state['session_id']}"
+
+        # if wav_audio_data is not None:
+        #     audio_segment = AudioSegment(wav_audio_data)
+        #     if not os.path.exists(f"{user_data_folder}/uploads"):
+        #         os.makedirs(f"{user_data_folder}/uploads")
+        #     audio_segment.export(
+        #         f"{user_data_folder}/uploads/output_data.wav", format="wav"
+        #     )
+        #     conduct_interview()
+        wav_audio_data = audiorecorder(
+            "Muted. Click to Start", "Unmuted. Click to Stop"
+        )
+
         user_data_folder = f"user_data/{session_state['session_id']}"
 
         if wav_audio_data is not None:
-            audio_segment = AudioSegment(wav_audio_data)
+            # audio_segment = AudioSegment(wav_audio_data)
             if not os.path.exists(f"{user_data_folder}/uploads"):
                 os.makedirs(f"{user_data_folder}/uploads")
-            audio_segment.export(
+            wav_audio_data.export(
                 f"{user_data_folder}/uploads/output_data.wav", format="wav"
             )
             conduct_interview()
