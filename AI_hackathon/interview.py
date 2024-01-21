@@ -426,7 +426,7 @@ def ai_interviewer_page():
 
         user_data_folder = f"user_data/{session_state['session_id']}"
 
-        if wav_audio_data is not None:
+        if wav_audio_data is not None and wav_audio_data.duration_seconds > 0.1:
             # audio_segment = AudioSegment(wav_audio_data)
             if not os.path.exists(f"{user_data_folder}/uploads"):
                 os.makedirs(f"{user_data_folder}/uploads")
