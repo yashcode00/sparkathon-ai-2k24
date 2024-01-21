@@ -3,7 +3,13 @@ from werkzeug.utils import secure_filename
 import os
 from pdfToText import *
 from api import *
+import markdown
+
 # from flaskext.markdown import Markdown
+
+class Messg:
+    def __init__(self, text) -> None:
+        self.text = text
 
 app = Flask(__name__)
 # Markdown(app)
@@ -21,10 +27,11 @@ def allowed_file(filename):
 def perform_ocr(pdf_path):
     return pdfToText(pdf_path).convertit()
 
-def enhance_resume(resume_text, target_job):
-    enhanced_resume = f"{resume_text}\n\nTarget Job: {target_job}"
-    enhanced_resume = prompt.prompt(f"Give an enhanced resume with job title target job {target_job} and resume {enhance_resume}")
-    return enhanced_resume
+def enhanceResume(resume_text, user_name ,target_job):
+    enhanced_resume = f"{resume_text}"
+    user_message =  Messg(f"Enhanced this resume {enhanced_resume} which is  for {user_name} ,with the target job profile of {target_job}.")
+    enhanced_resume = prompt.get_chat_response(user_message)
+    return markdown.markdown(enhanced_resume)
 
 @app.route('/')
 def index():
@@ -50,7 +57,12 @@ def upload_file():
         user_name = request.form['user_name']
         target_job = request.form['target_job']
 
-        enhanced_resume = enhance_resume(resume_text, target_job)
+        enhanced_resume = enhanceResume(resume_text, user_name, target_job)
+        # Convert and save as PDF
+        ##uploads/YashSharma_B20241.pdf
+        new_file_path = resume_path.split('/')[-1]
+        print(new_file_path)
+        makepdf(enhanced_resume, new_file_path)
 
         return render_template('result.html', user_name=user_name, original_resume=resume_text, enhanced_resume=enhanced_resume)
 

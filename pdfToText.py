@@ -12,6 +12,24 @@ from pdf2image import convert_from_path
 import pytesseract 
 # To remove the additional created files
 import os
+import markdown2pdf
+import pdfkit
+from markdown_pdf import Section, MarkdownPdf
+
+def makepdf(markdown_content, filename):
+    # Create a MarkdownPdf instance
+    pdf = MarkdownPdf(toc_level=2)
+
+    # Add a custom top section with the user's name centered
+    # top_section_content = f"<p align='center'><strong>{user_name}</strong></p>\n\n"
+    # top_section = Section(top_section_content, toc=False, borders=(30, 30, -30, -30))
+    # pdf.add_section(top_section)
+
+    # Add the entire resume content as a single section
+    pdf.add_section(Section(markdown_content, toc=False, borders=(30, 30, -30, -30)))
+
+    # Save the PDF
+    pdf.save(os.path.join('downloads',f'enhanced_{filename}'))
 
 
 class pdfToText:
@@ -156,6 +174,10 @@ class pdfToText:
             # Sort all the elements as they appear in the page 
             page_elements.sort(key=lambda a: a[0], reverse=True)
 
+            # Initialize lower_side and upper_side outside the loop
+            lower_side = 0
+            upper_side = 0
+
             # Find the elements that composed a page
             for i,component in enumerate(page_elements):
                 # Extract the position of the top side of the element in the PDF
@@ -200,7 +222,7 @@ class pdfToText:
                         lower_side = page.bbox[3] - tables[table_num].bbox[3]
                         upper_side = element.y1 
                         # Extract the information from the table
-                        table = self.extract_table(pdf_path, pagenum, table_num)
+                        table = self.extract_table(self.pdf_path, pagenum, table_num)
                         # Convert the table information in structured string format
                         table_string = self.table_converter(table)
                         # Append the table string into a list
@@ -235,6 +257,10 @@ class pdfToText:
         # os.remove('cropped_image.pdf')
         # os.remove('PDF_image.png')
 
+        result = ""
         # Display the content of the page
-        result = ''.join(text_per_page['Page_0'][4])
+        for page in text_per_page.keys():
+            temp = ''.join(text_per_page[str(page)][4])
+            result += temp
+        print(result)
         return result
