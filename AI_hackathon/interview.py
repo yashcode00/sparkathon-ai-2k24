@@ -440,14 +440,53 @@ def ai_interviewer_page():
 
             user_data_folder = f"user_data/{session_state['session_id']}"
 
-        if wav_audio_data is not None and wav_audio_data.duration_seconds > 0.1:
-            # audio_segment = AudioSegment(wav_audio_data)
-            if not os.path.exists(f"{user_data_folder}/uploads"):
-                os.makedirs(f"{user_data_folder}/uploads")
-            wav_audio_data.export(
-                f"{user_data_folder}/uploads/output_data.wav", format="wav"
-            )
-            conduct_interview()
+            if wav_audio_data is not None and wav_audio_data.duration_seconds > 0.1:
+                # audio_segment = AudioSegment(wav_audio_data)
+                if not os.path.exists(f"{user_data_folder}/uploads"):
+                    os.makedirs(f"{user_data_folder}/uploads")
+                wav_audio_data.export(
+                    f"{user_data_folder}/uploads/output_data.wav", format="wav"
+                )
+                conduct_interview()
+                wav_audio_data = None
+
+            if st.button("End Interview"):
+                wav_audio_data = None
+                st.session_state.end_interview = True
+                st.experimental_rerun()
+    else:
+        feedback = get_feedback()
+        facial_review = provide_interview_review()
+        feedback_values = feedback.split("\n")
+
+        # Remove empty elements from the split result
+        feedback_values = [value.strip() for value in feedback_values if value.strip()]
+
+        #### displaying ##########################
+        st.title("Feedback Metrics")
+        st.subheader("Score")
+        st.write(feedback_values[3])
+        cols = st.columns(3)
+
+        print(feedback_values)
+        
+        with cols[0]:
+            st.subheader("Summarization")
+            st.write(feedback_values[0])
+        with cols[1]:
+            st.subheader("Pros")
+            st.write(feedback_values[1])
+        with cols[2]:
+            st.subheader("Cons")
+            st.write(feedback_values[2])
+
+        st.subheader("Sample Answers")
+        st.write(feedback_values[4] if len(feedback_values) == 5 else "N/A")
+
+        st.subheader("Facial Expression Feedback")
+        st.write(facial_review)
+
+        #### displaying end ######################
 
         if st.button("Exit Session"):
             st.session_state.interview_started = False

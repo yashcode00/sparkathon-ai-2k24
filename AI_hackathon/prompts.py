@@ -78,7 +78,7 @@ Pros: Give positive feedback to the candidate.
 
 Cons: Tell the candidate what he/she can improves on.
 
-Score: Give a score to the candidate out of 100.
+Score: Give a score to the candidate out of 100. Score should reflect the chances that the candidate has of getting hired based on the interview for the given job description
 
 Sample Answers: sample answers to each of the questions in the interview guideline.
 
