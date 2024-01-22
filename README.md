@@ -5,7 +5,7 @@ Welcome Screen of our Webapp
 
 Welcome to CareerCraft, your personal career companion designed to elevate your job-seeking journey. Our web application leverages the Mixtral LLM API to provide you with a comprehensive suite of tools, including a Virtual Interview Simulator and a Resume Enhancer. Whether you're a student preparing for real interviews or a professional looking to polish your resume, CareerCraft is here to guide you.
 
-**Access our Website here: [Make Your Career Now!](https://careercraft.streamlit.app/)**
+**Access our Website here: [Make Your Career Now!](https://careercrafters.streamlit.app/)**
 
 ## Features:
 
