@@ -1,17 +1,16 @@
 # import streamlit as st
+import sys
+# sys.path.append('for_resume')
 import json
 from streamlit_lottie import st_lottie
 from streamlit_option_menu import option_menu
 from streamlit.components.v1 import html
-
-import sys
-sys.path.append('/Users/sharmas/Downloads/Hack2024/spsp/sparkathon-ai-2k24/AI_hackathon/for_resume')
 # print(sys.path)
 import streamlit as st
 import os
 from werkzeug.utils import secure_filename
-from pdfToText import *
-from api import *
+from for_resume.pdfToText import *
+from for_resume.api import *
 import markdown
 import base64
 
