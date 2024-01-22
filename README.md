@@ -55,12 +55,14 @@ To run CareerCraft locally, follow these steps:
 
 3. **Create Conda Environment:**
    ```bash
-   conda create --name sparkathon
+   python -m venv venv
+   
+   source venv\bin\activate
    ```
 
 4. **Install Requirements:**
    ```bash
-   pip3 install -r requirements.txt
+   pip install -r requirements.txt
    ```
 
 5. **Run Streamlit Application:**
