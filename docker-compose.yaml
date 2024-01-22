@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  app:
+    image: 
+    # build:
+    #   context: .
+    ports:
+      - "8501:8501"
+
+  nginx:
+    image: nginx
+    volumes:
+      - ./proxy/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./proxy/certs:/etc/nginx/certs
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - app
