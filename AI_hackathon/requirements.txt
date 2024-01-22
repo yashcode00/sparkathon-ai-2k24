@@ -3,7 +3,7 @@ markdown_pdf==1.0
 mediapipe==0.9.1.0
 numpy==1.25.0
 openai==1.9.0
-opencv-python-headless<4.3
+opencv-python-headless
 pdf2image==1.17.0
 pdfkit==1.0.0
 pdfminer.six==20221105
