@@ -1,6 +1,6 @@
 # import streamlit as st
 import sys
-# sys.path.append('for_resume')
+sys.path.append('for_resume')
 import json
 from streamlit_lottie import st_lottie
 from streamlit_option_menu import option_menu
@@ -67,3 +67,5 @@ def resume_enhancer_page():
             # Display the enhanced PDF using an iframe
             st.markdown(f"**Enhanced PDF:**")
             st.markdown(f'<iframe src="data:application/pdf;base64,{base64.b64encode(open(os.path.join("downloads",f"enhanced_{new_file_path}"), "rb").read()).decode("utf-8")}" width="100%" height="600px"></iframe>', unsafe_allow_html=True)
+
+
