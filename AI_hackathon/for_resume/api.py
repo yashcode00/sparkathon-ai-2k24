@@ -3,7 +3,7 @@ import os
 import json
 from openai import OpenAI
 from dotenv import load_dotenv
-from prompts_resume import *
+from for_resume.prompts_resume import *
 import time
 
 load_dotenv()
