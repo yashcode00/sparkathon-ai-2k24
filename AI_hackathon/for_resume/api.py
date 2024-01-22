@@ -11,8 +11,8 @@ load_dotenv()
 
 class promptLLM:
 
-    # def __init__(self) -> None:
-    #     self.OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+    def __init__(self) -> None:
+        self.MIXTRAL_API_KEY = os.getenv("MIXTRAL_API_KEY")
 
 
     def get_chat_response(self,resume, user_name, target_job):
@@ -21,13 +21,11 @@ class promptLLM:
         mssg.append({"role": "user", "content": user_prompt.format(enhanced_resume  = resume, user_name = user_name, target_job = target_job)})
 
         client = OpenAI(
-            # base_url="https://openrouter.ai/api/v1",
-            # api_key=self.OPENROUTER_API_KEY,
-            api_key = "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"
+            base_url="https://openrouter.ai/api/v1",
+            api_key=self.MIXTRAL_API_KEY,
         )
         gpt_response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            # model="mistralai/mixtral-8x7b-instruct",
+            model="mistralai/mixtral-8x7b-instruct",
             messages=mssg,
         )
         resp1 = gpt_response.choices[0].message.content
@@ -100,7 +98,7 @@ class promptLLM:
     #     resp = requests.post(
     #     url="https://openrouter.ai/api/v1/chat/completions",
     #     headers={
-    #         "Authorization": f"Bearer {self.OPENROUTER_API_KEY}",
+    #         "Authorization": f"Bearer {self.MIXTRAL_API_KEY}",
     #         # "HTTP-Referer": f"{YOUR_SITE_URL}", # Optional, for including your app on openrouter.ai rankings.
     #         # "X-Title": f"{YOUR_APP_NAME}", # Optional. Shows in rankings on openrouter.ai.
     #     },

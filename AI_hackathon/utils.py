@@ -22,7 +22,7 @@ def convert_text_to_audio(text, audio_path):
 
     print("converting texxt to audio: ", text)
     client_tts = OpenAI(
-        api_key="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"
+        api_key = os.getenv("OPENAI_API_KEY")
     )
     response = client_tts.audio.speech.create(
         model="tts-1",
@@ -34,7 +34,7 @@ def convert_text_to_audio(text, audio_path):
 
 def transcribe_audio(audio_path):
     client = OpenAI(
-        api_key="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"
+        api_key=os.getenv("OPENAI_API_KEY")
     )
     audio_file = open(audio_path, "rb")
     transcript = client.audio.transcriptions.create(
@@ -49,13 +49,11 @@ def get_chat_response(user_message, file_path, system_prompt):
     messages.append({"role": "user", "content": user_message.text})
 
     client = OpenAI(
-        # base_url="https://openrouter.ai/api/v1",
-        # api_key="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",
-        api_key = "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"
+        base_url="https://openrouter.ai/api/v1",
+        api_key = os.getenv("MIXTRAL_API_KEY")
     )
     gpt_response = client.chat.completions.create(
-        # model="mistralai/mixtral-8x7b-instruct",
-        model = "gpt-3.5-turbo",
+        model="mistralai/mixtral-8x7b-instruct",
         messages=messages,
     )
     parsed_gpt_response = gpt_response.choices[0].message.content
@@ -101,13 +99,13 @@ def generate_feedback(file_path):
             }
     )
     client = OpenAI(
-        # base_url="https://openrouter.ai/api/v1",
-        # api_key="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",
-        api_key = "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"
+        base_url="https://openrouter.ai/api/v1",
+       
+        api_key = os.getenv("MIXTRAL_API_KEY")
     )
     gpt_response = client.chat.completions.create(
-        # model="mistralai/mixtral-8x7b-instruct",
-        model = "gpt-3.5-turbo",
+        model="mistralai/mixtral-8x7b-instruct",
+        # model = "gpt-3.5-turbo",
         messages=feedback_messages
     )
     parsed_gpt_response = gpt_response.choices[0].message.content
