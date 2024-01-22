@@ -1,0 +1,54 @@
+Ashutosh Sharma b20087@students.iitmandi.ac.in 
+Second Year Undergraduate ashutosh-sharma08 /♀nedn
+Computer Science and Engineering code-ash-IIT /gtb
+Indian Institute of Technology, Mandi +91-7018458081 
+Education
+Indian Institute of Technology, Mandi Himachal Pradesh, India
+B.Tech, Computer Science and Engineering, CGPA: 8.49/10.00 2024
+Montessorie Cambridge School, Raja Ka Bagh Himachal Pradesh, India
+CBSE Board, Class - XII: 83.4% 2019
+Montessorie Cambridge School, Raja Ka Bagh Himachal Pradesh, India
+CBSE Board, Class - X: 10/10 CGPA 2017
+Skills
+•Programming Languages :C++, Python, PHP, Kotlin.
+•Libraries :Tensorflow, OpenCV, PyTorch, Keras, Scikit-learn, NLTK, Numpy, Pandas, Matplotlib.
+•Web Development :HTML, CSS, JavaScript, Node.js, MySQL, ReactJS, MongoDB.
+•BlockChain :Web3, Solidity, Smart Contracts, React.
+Relevant Courses
+•Data Structures and Algorithms, Information & Database Systems, Mathematical Foundation of Computer Science,
+Data Science-1,2,3 (Probability & machine Learning), Linear Algebra, Artificial Intelligence (Stanford online, CS:221)
+Projects
+Age and Gender detection on CCTV videos Github /gtb
+Python, Pytorch, OpenCV, MTCNN, ImageAI, Deepface, Keras, Tensorflow
+•Domains: SR GAN, DL, Image Processing
+•Used ImageAI for object detection, ESRGAN for enhancing resolution and MTCNN for face detection from individual images and
+used Deepface library for age prediction.
+Tower Defense AI Github /gtb
+Python: Pygame, Genetic ML Algorithm
+•Developed a game & AI algorithm to play it, under the guidance of mentor.
+•Tried 3-4 algorithms and finally implemented Genetic Algorithm from scratch whose performance matches human level performance.
+Automated Proctoring Github /gtb
+Django, Tensorflow, OpenCV
+•Login authentication using custom Face ID.
+•Face-verification during exam at regular intervals to save user’s bandwidth.
+•Implemented functionality to warn user on switching tabs during exam.
+Students IIT Mandi Github /gtb
+Institute Students Website Revamp Project
+•Leader of Frontend team, used HTML,CSS and Javascript to design frontend of the platform.
+•Currently the website is being used by all students of IIT Mandi.
+Achievements
+•Ranked 6th out of 100 participants in CodeRush :
+CodeRush is an intra-college competitive programming contest organised by AlgoUniversity
+•Runner up in Build a bot team competition :
+Deployed a bot using LIDAR sensors, that detects no. of people in a room and performs room automation.
+•Won NFT by completing dApp on Buildspace :
+Developed a Web3 app, using Solidity and Smart Contracts on BuildSpace.
+•Runner up in Chat-Bot team competition :
+Trained and deployed a chat bot on telegram in a college level team competition.
+Position of Responsibility
+•KamandPrompt -Core Team member at Programming Club of IIT Mandi
+•ML101 -Event organiser for on-campus Machine Learning, named ML101
+•FrostHack’22 -Volunteered for the sponsorship team of FrostHack’22
+•IIT Mandi Wiki -Server Administrator of IIT Mandi Wiki
+Extra Curricular Activities
+•Interested in dance - Volunteer at UDC, Dance Club of IIT Mandi.

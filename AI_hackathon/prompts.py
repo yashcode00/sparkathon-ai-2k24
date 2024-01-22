@@ -71,7 +71,7 @@ If there is an error, point it out.
 
 "feedback_template": """
 
-Based on the chat history, I would like you to evaluate the candidate based on the following format:
+Based on the chat history, I would like you to evaluate the candidate based on the following format. Your response should only be in the given format:
 Summarization: summarize the conversation in a short paragraph.
 
 Pros: Give positive feedback to the candidate. 
