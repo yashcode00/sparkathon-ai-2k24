@@ -1,22 +1,162 @@
+absl-py==2.1.0
+agora-token-builder==1.0.0
+aioice==0.9.0
+aiortc==1.6.0
+altair==5.2.0
+anaconda-client==1.11.3
+annotated-types==0.6.0
+anyio==4.2.0
+asgiref==3.7.2
+attrs @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_33k1uces4n/croot/attrs_1668696162258/work
+autobahn==23.6.2
+Automat==22.10.0
+av==11.0.0
+blinker==1.7.0
+Bottleneck @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_29949159-f86f-474b-bc1f-aaa1e0e222b4ofusifik/croots/recipe/bottleneck_1657175564045/work
+Brotli==1.1.0
+brotlipy==0.7.0
+cachetools==5.3.2
+certifi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_b64zphacdv/croot/certifi_1683875375103/work/certifi
+cffi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_1b0qzba5nr/croot/cffi_1670423213150/work
+channels==4.0.0
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+click==8.1.7
+clyent==1.2.2
+conda==4.13.0
+conda-package-handling @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_f61sssj1s3/croot/conda-package-handling_1685024797154/work
+conda-repo-cli==1.0.41
+conda_package_streaming @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_78ue32m8ay/croot/conda-package-streaming_1685019689310/work
+constantly==15.1.0
+contourpy==1.2.0
+cryptography==41.0.7
+cssselect2==0.7.0
+cycler==0.12.1
+daphne==4.0.0
+defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
+distro==1.9.0
+Django==4.2.2
+djangorestframework==3.13.1
+djangorestframework-simplejwt==5.2.0
+dnspython==2.5.0
+docopt==0.6.2
+docx2txt==0.8
+exceptiongroup==1.2.0
+fastjsonschema @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_b5c1gee32t/croots/recipe/python-fastjsonschema_1661368622875/work
+Flask==3.0.1
+flatbuffers==23.5.26
+fonttools==4.47.2
+gitdb==4.0.11
+GitPython==3.1.41
+google-crc32c==1.5.0
+h11==0.14.0
+html5lib==1.1
+httpcore==1.0.2
+httpx==0.26.0
+hyperlink==21.0.0
+idna @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_00jf0h4zbt/croot/idna_1666125573348/work
+ifaddr==0.2.0
+importlib-metadata==7.0.1
+importlib-resources==6.1.1
+incremental==22.10.0
+itsdangerous==2.1.2
+Jinja2==3.1.3
+jsonschema @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_21cqeq1xnk/croot/jsonschema_1676558686956/work
+jupyter_core @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_b82fz_h369/croot/jupyter_core_1679906581737/work
+kiwisolver==1.4.5
+lxml==5.1.0
 Markdown==3.5.2
-markdown_pdf==1.0
+markdown-it-py==3.0.0
+markdown-pdf==1.0
+markdown2==2.4.12
+Markdown2PDF==0.1.4
+MarkupSafe==2.1.4
+matplotlib==3.8.2
+mdurl==0.1.2
 mediapipe==0.9.1.0
-numpy==1.25.0
+mkl-fft==1.3.6
+mkl-random @ file:///Users/ec2-user/mkl/mkl_random_1682994911338/work
+mkl-service==2.4.0
+nbformat @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_2daun1fill/croot/nbformat_1670352339504/work
+numexpr @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_1b50c1js9s/croot/numexpr_1683227065029/work
+numpy @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_facv4mnp7u/croot/numpy_and_numpy_base_1687466217056/work
 openai==1.9.0
-opencv-python<4.3
-opencv-python-headless<4.3
+opencv-contrib-python==4.9.0.80
+opencv-python==4.9.0.80
+packaging==23.2
+pandas==1.5.3
+pathlib @ file:///Users/ktietz/demo/mc3/conda-bld/pathlib_1629713961906/work
 pdf2image==1.17.0
 pdfkit==1.0.0
 pdfminer.six==20221105
 pdfplumber==0.10.3
-Pillow==10.2.0
+pillow==10.2.0
+pipreqs==0.4.13
+platformdirs @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_7fs8_2xgrm/croots/recipe/platformdirs_1662711383474/work
+protobuf==3.20.3
+pyarrow==14.0.2
+pyasn1==0.5.0
+pyasn1-modules==0.3.0
+pycosat @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_ebsmghz9nu/croot/pycosat_1666805511853/work
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pydantic==2.5.3
+pydantic_core==2.14.6
+pydeck==0.8.1b0
 pydub==0.25.1
+pydyf==0.8.0
+pyee==11.1.0
+Pygments==2.17.2
+PyJWT==2.5.0
+pylibsrtp==0.9.1
+PyMuPDF==1.23.3
+PyMuPDFb==1.23.3
+pyOpenSSL==23.3.0
+pyparsing==3.1.1
 PyPDF2==3.0.1
+pypdfium2==4.26.0
+pyphen==0.14.0
+pyrsistent @ file:///opt/concourse/worker/volumes/live/76cffa60-bd33-4155-4e83-ea03c38b1294/volume/pyrsistent_1636111020441/work
+PySocks @ file:///opt/concourse/worker/volumes/live/112288ac-9cb0-4e73-768b-13baf4ca6419/volume/pysocks_1605305820043/work
 pytesseract==0.3.10
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+python-docx==1.1.0
 python-dotenv==1.0.0
-Requests==2.31.0
+pytz==2022.2.1
+PyYAML @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_79xo15pf1i/croot/pyyaml_1670514753622/work
+requests @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_ec2sxfa_zk/croot/requests_1682607519671/work
+requests-toolbelt @ file:///Users/ktietz/demo/mc3/conda-bld/requests-toolbelt_1629456163440/work
+rich==13.7.0
+ruamel-yaml-conda @ file:///opt/concourse/worker/volumes/live/e81cf0fe-611a-498e-6e69-a7320057c1ac/volume/ruamel_yaml_1616016689696/work
+service-identity==23.1.0
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+smmap==5.0.1
+sniffio==1.3.0
+sqlparse==0.4.2
+stqdm==0.0.5
 streamlit==1.30.0
-streamlit_lottie==0.0.5
-streamlit_option_menu==0.3.12
-streamlit_webrtc==0.47.1
+streamlit-audiorecorder==0.0.4
+streamlit-ext==0.1.9
+streamlit-lottie==0.0.5
+streamlit-option-menu==0.3.12
+streamlit-webrtc==0.47.1
+tenacity==8.2.3
+tinycss2==1.2.1
+toml==0.10.2
+toolz==0.12.0
+tornado==6.4
+tqdm @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_03acd6t6ca/croot/tqdm_1679561866522/work
+traitlets @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_0dtilxc0bw/croot/traitlets_1671143889152/work
+Twisted==22.10.0
+txaio==23.1.1
+typing_extensions==4.7.1
+tzdata==2021.5
+tzlocal==5.2
+urllib3 @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_1968zekhce/croot/urllib3_1686163172153/work
+validators==0.22.0
+weasyprint==60.2
+webencodings==0.5.1
 Werkzeug==3.0.1
+yarg==0.1.9
+zipp==3.17.0
+zope.interface==6.0
+zopfli==0.2.3
+zstandard @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_40ayfv1xn6/croot/zstandard_1677014126754/work
